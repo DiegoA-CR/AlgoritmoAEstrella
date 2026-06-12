@@ -1,0 +1,19 @@
+¿Cómo voy a hacer esto?
+¡piensa franki, piensa riverrrss! 
+
+bien la formula es F = G * H
+
+necesitamos:
+    cuatro cosas ALV
+    el identificador (ID)
+    el costo (G) que al inico es = 0 como no
+    la heuristica (H) esta entiendo hasta el momento es la suma comparatica del actual valor hasta el punto final ejemplo:
+        se calcula el camino mas corto tomando el nodo actual como referencia y contando los pasos para llegar al punto b 
+        Punto referencia = valor de costo (g) * la cantidad de pasos a dar al punto  final digammos: H = G(X+N) 
+    buen teniendo eso lo siguiente es
+    
+    Finalmente
+    calcular el valor de la sumatoria de los calores de los calores obtenidos de g y h:
+        F = G*H
+    
+    que va a hacer el nodo tomar el valor de inicio y calcular el 'gasto' del sigiente paso, pero do tods sus vecinos.

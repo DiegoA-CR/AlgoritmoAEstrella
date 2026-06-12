@@ -1,0 +1,59 @@
+*{
+    font-family: sans-serif;
+    margin:0;
+    padding: 0;
+}
+
+:root{
+    --fondo: #7a7a7a;
+    --cuadro: #ffffff;
+    --puntoA: #017506;
+    --puntoB: #CC0606;
+    --LT: #040772 ;
+    --RF: #F4320B;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background:#f4f4f4;
+}
+
+h1{
+    color: #000000;
+}
+
+#grid{
+    display:grid;
+    grid-template-columns: repeat(20, 30px);
+    gap:2px;
+    justify-content:center;
+    margin:20px auto;
+
+}
+
+.marcaInicio{
+    background: var(--puntoA);
+    }
+
+.marcaFin{
+    background: var(--puntoB);
+}
+
+.pintaMuro{
+    background: #000000;
+}
+
+.listaTemporal{
+    background:skyblue;
+}
+
+.recorridoFinal{
+    background:yellow;
+}
+
+button{
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
