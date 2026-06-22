@@ -1,8 +1,8 @@
 const filas = 5;
-const comlumnas = 5;
+const columnas = 5;
 
 let marcaInicio = 0;
-let marcaFin = null;
+let marcaFin = 0;
 
 const listaTemporal = [];
 const recorridoFinal = [];
@@ -11,16 +11,33 @@ const recorridoFinal = [];
 const Elemento = document.getElementById('grid');
 
 class Nodo {
-    constructor (filas,comlumnas){
+    constructor (filas,columnas){
         this.filas = filas;
-        this.comlumnas = comlumnas;
+        this.columnas = columnas;
+
+        this.muro = false;
+        this.g = Infinity;
+        this.h = 0;
+        this.f = Infinity;
+        this.NodoPadre = null;
         
     }
 }
 
 
-const card = document.querySelector('.card');
-
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
 card.addEventListener('click', () => {
     card.classList.toggle('activa');
-})
+    });
+});
+
+
+const mapa = Array(filas)
+    .fill()
+    .map(() => Array(columnas).fill(0));
+
+
+function limpiaMuro(){
+    
+}
