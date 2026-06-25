@@ -128,6 +128,40 @@ marcaInicio.f = marcaInicio.h;
 
 listaTemporal.push(marcaInicio);
 
+while(listaTemporal.length > 0){
+    //para buscar el nodo con menor -F-
+    let nodoActual = listaTemporal [0];
+    let indiceActual = 0;
+    //verificamos los valores el valor del actual con el de la lista
+    for(let i=0; i<listaTemporal; i++){
+        if(listaTemporal[i] < nodoActual){
+            nodoActual = listaTemporal[i];
+            indiceActual = i;
+        }
+    }
+
+    // Si existte un camino entonces
+    if(nodoActual === marcaFin){
+        reconstruirCamino(nodoActual);
+        // para pruebas
+        console.log('Si hay camino... Encontrado');
+        return;
+    }
+
+    // Si si llegamos al nodo final tenemos que mover el de menor carga
+    // ok deepseek me recomienda splice https://www.freecodecamp.org/espanol/news/javascript-splice-como-ulitizar-el-metodo-splice-de-arreglo-en-js/
+    // hacer ejercicios con splice()
+    //let meses = ["enero", "febrero", "lunes", "martes"];
+    //let dias = meses.splice(2);
+    //console.log(dias); // ["lunes", "martes"]
+    
+    listaAbierta.splice(indiceActual,1);
+    listaCerrada.push(nodoActual);
+
+}
+
+
+
 // Función para resetear
 function limpiaMuro() {
     location.reload();

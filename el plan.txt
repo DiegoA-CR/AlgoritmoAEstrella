@@ -17,3 +17,12 @@ necesitamos:
         F = G*H
     
     que va a hacer el nodo tomar el valor de inicio y calcular el 'gasto' del sigiente paso, pero do tods sus vecinos.
+
+
+retro alimentacion
+
+https://www.datacamp.com/es/tutorial/a-star-algorithm
+https://nlaredo.tecnm.mx/takeyas/Apuntes/inteligencia%20artificial/Apuntes/tareas_alumnos/A-Star/A-Star(2005-II-B).pdf
+https://www.youtube.com/watch?v=yxN6yR_7yJM
+https://www.youtube.com/watch?v=X-5JMScsZ14
+https://www.youtube.com/watch?v=X-5JMScsZ14
