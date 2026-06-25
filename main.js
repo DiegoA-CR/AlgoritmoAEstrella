@@ -3,9 +3,6 @@ let marcaInicio = null;
 let marcaFin = null;
 let gridNodos = []; // Matriz de nodos
 
-const listaTemporal = [];
-const recorridoFinal = [];
-
 // Configuración de la cuadrícula
 const FILAS = 5;
 const COLUMNAS = 5;
@@ -107,7 +104,29 @@ function iniciaRecorrido() {
     console.log('¡Funciona! Ahora podemos implementar A*');
     
     // Aquí irá el algoritmo A* más adelante
+
+
+    // Reiniciar valores de los nodos
+    for(let i=0;i< FILAS; i++){
+        for(let j=0; j<COLUMNAS; j++){
+            gridNodos[i][j].g = Infinity;
+            gridNodos[i][j].h = 0;
+            gridNodos[i][j].f = Infinity;
+            gridNodos[i][j].NodoPadre = null;
+        }
+    }
 }
+
+const listaTemporal = [];
+const recorridoFinal = [];
+
+//Configuracion d inicio
+
+marcaInicio.g = 0;
+marcaInicio.h = calcularHeuristica(marcaInicio, marcaFin);
+marcaInicio.f = marcaInicio.h;
+
+listaTemporal.push(marcaInicio);
 
 // Función para resetear
 function limpiaMuro() {
