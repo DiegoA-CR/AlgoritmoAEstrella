@@ -2,6 +2,7 @@
     font-family: sans-serif;
     margin:0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root{
@@ -16,73 +17,87 @@
 }
 
 body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    background:#f4f4f4;
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #f4f4f4;
+    min-height: 100vh; /* En vez de height */
+    padding: 20px;
 }
 
 h1{
-    color: #000000;
+    color: var(--texto);
+    margin-bottom: 20px;
 }
 
 .contenedor{
-    width: 100vw;
-    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 .panel{
-    margin-top: 30vh;
-    width: 60vw;
-    height: 60vh;
-    border: 1px solid  var(--texto);
-
+    padding: 10px;
+    border: 2px solid  var(--texto);
+    border-radius: 10px;
 }
+
+
 #nodo{
+
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5,1fr);
-    gap: 10px;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5,50px);
+    gap: 2px;
 }
 
 .card{
-    width: 8vw;
-    height: 8vh;
+    width: 50px;
+    height: 50px;
     border: 1px solid var(--texto);
-    background-color: #f0f0f0;
+    background-color: var(--cuadro);
     cursor: pointer;
     transition: all 0.3s;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .card:hover {
     background-color: #e0e0e0;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .card.inicio {
-    background-color: #4CAF50; /* Verde para inicio */
+    background-color: var(--puntoA);
 }
 
 .card.fin {
-    background-color: #f44336; /* Rojo para fin */
+    background-color: var(--puntoB);
 }
 
 .card.activa {
-    background-color: #333; /* Negro para muros */
+    background-color: var(--muro);
 }
 
 .card.camino {
-    background-color: #2196F3; /* Azul para el camino */
+    background-color: var(--LT);
 }
 
 .card.explorado {
-    background-color: #FFC107; /* Amarillo para nodos explorados */
+    background-color: var(--RF);
 }
 
-button{
-    padding:10px 20px;
-    margin:5px;
-    cursor:pointer;
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--LT);
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
 }
