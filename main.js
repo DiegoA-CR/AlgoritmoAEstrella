@@ -132,9 +132,11 @@ while(listaTemporal.length > 0){
     //para buscar el nodo con menor -F-
     let nodoActual = listaTemporal [0];
     let indiceActual = 0;
-    //verificamos los valores el valor del actual con el de la lista
-    for(let i=0; i<listaTemporal; i++){
-        if(listaTemporal[i] < nodoActual){
+    
+    //verificamos
+    
+    for(let i=0; i<listaTemporal.length; i++){
+        if(listaTemporal[i].f < nodoActual.f){
             nodoActual = listaTemporal[i];
             indiceActual = i;
         }
@@ -158,8 +160,32 @@ while(listaTemporal.length > 0){
     listaAbierta.splice(indiceActual,1);
     listaCerrada.push(nodoActual);
 
+    //obtener vecinos
+    const vecinos = obtenerVecinos(nodoActual);
+
+    for(const vecino of vecinos){
+        //colicion/comprobacion si es que encontramos un muro 
+        if(vecino.muro || listaCerrada.includes(vecino)){
+            continue;
+        }
+        //mejor camino
+        vecino.NodoPadre = nodoActual;
+        vecino.g = gTentativa;
+        vecino.h = calcularHeuristica(vecino, marcaFin);
+        vecino.f = vecino.g * vecino.h;
+    }
 }
 
+    console.log('no hay caminos posible');
+    alert('no se encontro camino');
+
+    //deepseek
+    // no me funcionaba el mio, la formula D = |X1-X2|+|Y1-Y2|
+
+    function calcularHeuristica(nodoA, nodoB) {
+    // Distancia Manhattan
+    return Math.abs(nodoA.filas - nodoB.filas) + Math.abs(nodoA.columnas - nodoB.columnas);
+    }
 
 
 // Función para resetear
