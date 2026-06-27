@@ -4,8 +4,8 @@ let marcaFin = null;
 let gridNodos = []; // Matriz de nodos
 
 // Configuración de la cuadrícula
-const FILAS = 5;
-const COLUMNAS = 5;
+const FILAS = 10;
+const COLUMNAS = 10;
 
 // Obtener el contenedor
 const nodoElemento = document.getElementById('nodo');
@@ -242,16 +242,28 @@ function iniciaRecorrido() {
 
 
     return vecinos;
-    }
+    }    
 
     function reconstruirCamino(nodoFinal) {
     let nodoActual = nodoFinal;
     const camino = [];
     
+    //https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
+
     while (nodoActual !== null) {
         camino.unshift(nodoActual);
         nodoActual = nodoActual.NodoPadre;
     }
+
+    // Se que aqui debe ir lo que necesito para pintar el camino
+
+    camino.forEach((nodo) => {
+        const celda = document.querySelector( nodoActual);
+
+        if(celda && !celda.classList.contains('inicio') && !celda.classList.contains('fin')){
+            celda. classList.add('camino');
+        }
+    })
     
     console.log('Camino encontrado:');
     camino.forEach(nodo => {

@@ -10,8 +10,8 @@
     --cuadro: #ffffff;
     --puntoA: #017506;
     --puntoB: #CC0606;
-    --LT: #040772 ;
-    --RF: #F4320B;
+    --LT: #040772 ; /*lista temporal*/
+    --RF: #F4320B; /**/
     --texto: #000000;
     --muro: #616060;
 }
@@ -47,8 +47,8 @@ h1{
 #nodo{
 
     display: grid;
-    grid-template-columns: repeat(5, 50px);
-    grid-template-rows: repeat(5,50px);
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10,50px);
     gap: 2px;
 }
 
