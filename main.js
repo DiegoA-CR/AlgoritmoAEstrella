@@ -244,40 +244,70 @@ function iniciaRecorrido() {
     return vecinos;
     }    
 
+
     function reconstruirCamino(nodoFinal) {
+    limpiarCaminoVisual();
+
     let nodoActual = nodoFinal;
     const camino = [];
     
-    //https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
-
     while (nodoActual !== null) {
         camino.unshift(nodoActual);
         nodoActual = nodoActual.NodoPadre;
     }
 
-    // Se que aqui debe ir lo que necesito para pintar el camino
-
+    // Pintar todo de una vez
     camino.forEach((nodo) => {
-        const celda = document.querySelector( nodoActual);
-
-        if(celda && !celda.classList.contains('inicio') && !celda.classList.contains('fin')){
-            celda. classList.add('camino');
+        const celda = document.querySelector(`[data-fila="${nodo.filas}"][data-columna="${nodo.columnas}"]`);
+        
+        if (celda && !celda.classList.contains('inicio') && !celda.classList.contains('fin')) {
+            celda.classList.add('camino');
         }
-    })
-    
-    console.log('Camino encontrado:');
-    camino.forEach(nodo => {
-        console.log(`[${nodo.filas}, ${nodo.columnas}]`);
     });
     
+    console.log(`Camino pintado: ${camino.length} pasos`);
     return camino;
 }
 
 
-// Función para resetear
-function limpiaMuro() {
-    location.reload();
-}
 
-// Inicializar
-crearPanel();
+//funcion para limpiar camino--sin borrar inicio ni fin
+
+    function limpiarCaminoVisual(){
+        const celda = document.querySelectorAll('.card');
+        celda.forEach(celda => {
+            celda.classList.remove('camino')
+        });
+    }
+
+
+    function limpiarTodo(){
+        limpiarCaminoVisual();
+        marcaInicio = null;
+        marcaFin = null;
+
+        const celdas = document.querySelectorAll('.card');
+        celdas.forEach(celda => {
+            celda.classList.remove('inicio','fin','activa');
+        });
+
+
+        //Reiniciar grid logico
+
+        for(let i=0; i< FILAS; i++){
+            for(let j=0; j< COLUMNAS;j++){
+                gridNodos[i][j].muro = false;
+            }
+        }
+
+        console.log('Se a limpiado el grid');
+
+    }
+
+    // Función para resetear
+    function limpiaMuro() {
+        location.reload();
+    }
+
+    // Inicializar
+    crearPanel();
